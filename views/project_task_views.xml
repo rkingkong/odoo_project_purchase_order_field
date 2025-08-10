@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_task_form_inherit_purchase_orders" model="ir.ui.view">
+        <field name="name">project.task.form.purchase.orders.start.date</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+
+            <!-- Add Start Date field below Categories -->
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="start_date"/>
+            </xpath>
+
+            <!-- Add Purchase Orders field below Start Date -->
+            <xpath expr="//field[@name='start_date']" position="after">
+                <field name="purchase_order_ids" widget="many2many_tags"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
